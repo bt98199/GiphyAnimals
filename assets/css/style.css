@@ -1,0 +1,9 @@
+.animal-buttons, .pulled-gifs {
+    border: solid 1px green;
+    min-height: 10px;
+}
+
+.sidebar {
+    border: solid 1px red;
+    min-height: 10px;
+}

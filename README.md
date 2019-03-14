@@ -1,5 +1,14 @@
 # GiphyAnimals
 
+Development Notes
+1.  I'll need to come back later and try out the bonus functions.
+2.  I couldn't figure out a way to get different gifs on each call, a work around could be to get more than 10 images and then select a random index point to start rendering them to the page.
+3.  Later on I expect to find a way to keep the more lame gifs out by tagging them as lame in some way in the code, potentially with a "mark as lame" tag that updates a file somewhere that the javascript references on page load.  That way we don't bloat up the base js needed to do the job.
+4.  It should be easy enough later to put in fields for how many images you want, what rating, what size, etc.
+
+
+
+
 # GifTastic
 
 ### Overview

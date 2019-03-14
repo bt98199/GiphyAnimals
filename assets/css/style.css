@@ -1,9 +1,29 @@
-.animal-buttons, .pulled-gifs {
-    border: solid 1px green;
+.animal-buttons {
+    /* border: solid 1px green; */
     min-height: 10px;
+    background-color: rgb(240, 244, 245);
+    font-weight: bold;
 }
 
+.pulled-gifs {
+    font-weight: bold;
+
+}
+
+
 .sidebar {
-    border: solid 1px red;
-    min-height: 10px;
+    /* border: solid 1px red; */
+    width: 250px;
+    float: right;
+    padding: 5px;
+
+   
+}
+
+.preview
+{
+    /* border: dotted 1px green; */
+    max-width: 300px;
+    display: inline-block;
+    margin: 10px;
 }

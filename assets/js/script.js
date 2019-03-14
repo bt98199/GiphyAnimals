@@ -24,17 +24,12 @@ $(document).ready(function() {
         $('#animal-input').val('');
       });
 
-    //   a.attr("data-name", movies[i]);
-    //   var movie = $(this).attr("data-name");
-    // (document).on("click", ".movie-btn", displayMovieInfo)
     $("#v-button-dump").on("click", ".v-buttons", function() {
     $(".pulled-gifs").empty();
         var critter = $(this).attr("animal-name");
         console.log(critter);
-        
-
         // var critter = $("animal-name").val().trim();
-        var queryUrl = "https://api.giphy.com/v1/gifs/search?&api_key=wWX5wBEQ3RQFPxDKhcxCfgKtGOIMNQuK&limit=10&q=" + critter;
+        var queryUrl = "https://api.giphy.com/v1/gifs/search?&api_key=wWX5wBEQ3RQFPxDKhcxCfgKtGOIMNQuK&rating=g&limit=10&q=" + critter;
     
             // Performing our AJAX GET request
          console.log(queryUrl);
@@ -46,42 +41,29 @@ $(document).ready(function() {
             .then(function(response) {
             // Storing an array of results in the results variable
              var results = response.data;
-
              // Looping over every result item
              for (var i = 0; i < results.length; i++) {
-
-             // Only taking action if the photo has an appropriate rating
-             if (results[i].rating === "g" || results[i].rating === "pg") {
              // Creating a div for the gif
              var gifDiv = $("<div>");
-
-             // Storing the result item's rating
+            gifDiv.addClass("preview");
+             // Storing the result item's rating and title
             var rating = results[i].rating;
             var title = results[i].title;
-
-            // Creating a paragraph tag with the result item's rating
-            var p = $("<p>").text("Rating: " + rating + " Title: " + title);
-
+            // Creating a span tag to load up the gifs left to right
+            var p = $("<span>").html("Rating: " + rating + "<br> Title: " + title + "<br>");
             // Creating an image tag
             var critterImage = $("<img>");
-
-             // Giving the image tag an src attribute of a proprty pulled off the
-             // result item
+             // Giving the image tags that will allow for the stop/restart of animation
             critterImage.attr("src", results[i].images.fixed_height_still.url);
             critterImage.attr("data-still", results[i].images.fixed_height_still.url);
             critterImage.attr("data-animate", results[i].images.fixed_height.url);
             critterImage.attr("data-state", "still");
             critterImage.addClass("gif");
-
-               // Appending the paragraph and personImage we created to the "gifDiv" div we created
-    
+            // Appending the paragraph and personImage we created to the "gifDiv" div we created
             gifDiv.append(p);
             gifDiv.append(critterImage);
-            console.log(critterImage);
-
-            // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+            // Prepending the gifDiv to the "#pulled-gif" div in the HTML
             $(".pulled-gifs").append(gifDiv);
-            }
           }
         })
   });
@@ -100,15 +82,6 @@ $(document).ready(function() {
           $(this).attr("data-state", "still");
         }
       });
-
-
- 
-
-
-
- 
- 
- // $(document).on("click", ".movie-btn", displayMovieInfo);
  renderButtons()
 });
 
